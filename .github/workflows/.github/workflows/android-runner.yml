@@ -1,0 +1,23 @@
+
+name: Android Runner Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: [self-hosted, linux, ARM64]
+
+    steps:
+      - name: Check Android runner
+        run: |
+          echo "Hello from my Android self-hosted runner!"
+          echo "Architecture:"
+          uname -m
+          echo "Ubuntu version:"
+          cat /etc/os-release
+          echo "Runner user:"
+          whoami
